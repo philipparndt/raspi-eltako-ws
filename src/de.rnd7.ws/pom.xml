@@ -9,15 +9,19 @@
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>de.rnd7.ws</groupId>
 	<artifactId>de.rnd7.ws</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.pi4j</groupId>
 			<artifactId>pi4j-core</artifactId>
 			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math</artifactId>
+			<version>2.2</version>
 		</dependency>
 
 		<dependency>
