@@ -15,7 +15,7 @@ public class Button {
 
 	static Button create(final GpioController gpio, final Pin pin) {
 		final GpioPinDigitalInput input = gpio.provisionDigitalInputPin(pin, PinPullResistance.PULL_UP);
-		input.setDebounce(50);
+		input.setDebounce(10);
 
 		return new Button(input);
 	}
