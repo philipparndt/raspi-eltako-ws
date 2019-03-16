@@ -19,7 +19,7 @@ public class Main {
 		new Main();
 	}
 
-	private AtomicInteger counter = new AtomicInteger(0);
+	private AtomicInteger rpsCounter = new AtomicInteger(0);
 	private MLMqttClient mqtt = new MLMqttClient();
 	private DescriptiveStatistics statistics = new DescriptiveStatistics();
 
@@ -45,14 +45,13 @@ public class Main {
 	}
 
 	private void triggered() {
-		this.counter.incrementAndGet();
+		this.rpsCounter.incrementAndGet();
 	}
 
 	private void takeValues() {
-		double current = counter.getAndSet(0) * 2;
+		double rps = this.rpsCounter.getAndSet(0) / 2;
 
-		// formula from: http://zieren.de/ip-anemometer/
-		double windspeed = 1.761f / (1 + current) + 3.013f * current;
+		double windspeed = 1.761f / (1 + rps) + 3.013f * rps;
 		if (windspeed <= 1.762) {
 			windspeed = 0;
 		}
